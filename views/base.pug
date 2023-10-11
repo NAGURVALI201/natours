@@ -1,0 +1,44 @@
+//- doctype html
+//- html 
+//-     head 
+//-         title Natours | #{tour}
+//-         //- we can also use the template literal in pug like this #{variable} 
+//-         //- Natours #{tour} first one is a string and second one is js so we cant assign it any thing but we can put like a string title Natours #{tour} will be string this is called interpolation
+//-         link(rel='stylesheet',href='css/style.css')
+//-         link(rel='shortcut icon',href='img/favicon.png')
+//-     body 
+//-         h1=tour 
+//-         h1=user.toUpperCase()
+//-         // above is called buffer code after = we can write javascript and this line will be comment in html when we see this in the browser inspect
+//-         //- this line wont be shown in the browser inspect because //-
+//-         //- how to write unbuffer code means
+//-         //- we start the line with - and then write the javascript
+//-         - const x = 9;
+//-         h2= 2 * x
+//-         h1 The Park Camper  
+//-         p Just some text 
+//-         when we use block and then extend the content inside that goes away when imported but we in importing we can use block append this will add the content at the end and the extended content would not differ and will remain their
+doctype html 
+html 
+    head
+        block head 
+            meta(charset='UTF-8')
+            meta(name='viewport' content='width=device-width, initial-scale=1.0')
+            link(rel='stylesheet' href='/css/style.css')
+            link(rel='shortcut icon' type='image/png' href='/img/favicon.png')
+            link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Lato:300,300i,700')
+            title Natours | #{title}
+    body 
+        // HEADER
+        include _header
+        // CONTENT
+        block content 
+            h1 This is the home page of Natours  
+        // FOOTER
+        include _footer
+        
+        //- script(src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js')
+        //- script(src='/js/mapBox.js')
+        //- script(src='/js/login.js')
+        script(src="https://js.stripe.com/v3/")
+        script(src='/js/bundle.js')
